@@ -15,4 +15,13 @@ class PhotosController < ActionController::Base
     render({ :template => "photos_templates/show"})
   end
   
+  def del 
+    the_id = params.fetch('id')
+    matching_photo = Photo.where ({ :id => the_id })
+    the_photo = matching_photo.at(0)
+    the_photo.destroy 
+
+    redirect_to('/photos')
+
+  end 
 end
