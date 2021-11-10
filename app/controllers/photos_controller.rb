@@ -59,7 +59,7 @@ class PhotosController < ActionController::Base
 
     new_comment.photo_id = photo_id 
     new_comment.author_id = author_id
-    new_comment.input_body = input_body 
+    new_comment.body = input_body 
     
     new_comment.save 
 
