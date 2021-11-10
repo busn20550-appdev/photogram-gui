@@ -10,24 +10,28 @@
 <dl>
   <dt> Image </dt>
   <dd> <img src='<%= @photo_info.image %>'> </dd> 
+
   <dt> Caption </dt>
   <dd> <%= @photo_info.caption %></dd> 
+
   <dt> Owner </dt>
   <dd> <%= @photo_info.poster.username %></dd> 
+
   <dt> Posted </dt>
   <dd> <%= @photo_info.created_at %> </dd> 
+
   <dt> Edit Photo </dt>
   <dd> 
     <form action="/update_photo/<%= @photo_info.id %>">
       <label for="browser_image">Image</label>
       <input id="browser_image" type="text" name="input_image" 
       placeholder="Enter a URL for the image..." 
-      value="https://robohash.org/dolorehicincidunt.png?size=300x300&amp;set=set1">
+      value="<%= @photo_info.image%>">
 
       <label for="browser_caption">Caption</label>
       <textarea id="browser_caption" name="input_caption" 
       placeholder="Enter a caption for the photo...">
-      Once you’ve accepted your flaws, no one can use them against you.
+      <%= @photo_info.caption%>
       </textarea>
 
       <button>Update photo</button>
@@ -60,7 +64,7 @@
 
 <h3> Add a new comment </h3>
 
-<form action="/insert_comment_record">
+<form action="/add_comment">
   <label for="browser_photo_id">Photo ID</label>
   <input id="browser_photo_id" type="text" value="<%= @photo_info.id%>" name="input_photo_id">
 
